@@ -12,6 +12,10 @@ import java.util.List;
 public class LinkedListMaker {
 
     public static ListNode makeList(String commaSeparatedNumbers){
+        if(commaSeparatedNumbers.isEmpty()){
+            System.out.println("empty String, cant make list out of it");
+            return null ;
+        }
         String[] arr = commaSeparatedNumbers.split(",");
         ListNode head = null;
         ListNode current = null;

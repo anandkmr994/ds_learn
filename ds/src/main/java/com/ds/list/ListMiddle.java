@@ -9,14 +9,14 @@ import com.ds.helper.LinkedListMaker;
 public class ListMiddle {
 
 
-    public static void findMiddle(ListNode head) {
+    public static ListNode findMiddle(ListNode head) {
         if(head == null){
             System.out.println("empty list");
-            return ;
+            return null;
         }
         if(head.getNext() == null){
             System.out.println("head is middle node , middle node: " + head.getData());
-            return ;
+            return head;
         }
         ListNode slow = head ;
         ListNode fast = head ;
@@ -26,6 +26,7 @@ public class ListMiddle {
             slow = slow.getNext();
         }
         System.out.println("middle node : " + slow.getData());
+        return slow ;
     }
     public static void main(String[] args) {
         ListNode head = LinkedListMaker.makeList("3,4,5");
