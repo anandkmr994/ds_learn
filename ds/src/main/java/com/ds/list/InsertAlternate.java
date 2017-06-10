@@ -17,21 +17,31 @@ public class InsertAlternate {
             System.out.println("second list is empty, returning 1st as result");
             return head1 ;
         }
-        ListNode current1 = head1, current2 = head2;
-        ListNode next1 = null , next2 = null;
+        ListNode current1 = head1, current2 = head2, current= current1;
+        ListNode next1 = null , next2 = null, temp = null;
         while(current1 !=null && current2 != null){
             next1 = current1.getNext();
             next2 = current2.getNext();
             current1.setNext(current2);
-            current2.setNext(next1);
-            current1 = current1.getNext().getNext();
-            current2 = next2 ;
+            if(next1!=null) {
+                current2.setNext(next1);
+            }
+            current = current.getNext().getNext();
+            current1 = next1;
+            current2 = next2;
+        }
+
+        if(current1 == null){
+            current = current2;
+        }
+        if(current2 == null){
+            current = current1;
         }
         return head1 ;
     }
     public static void main(String[] args) {
-        ListNode head1 = LinkedListMaker.makeList("5,7,17,13,11");
-        ListNode head2 = LinkedListMaker.makeList("12,10,2,4,6");
+        ListNode head1 = LinkedListMaker.makeList("5,7,3,4,5");
+        ListNode head2 = LinkedListMaker.makeList("12,10,2,6,7,8,9");
         ListNode result = insertAlternate(head1,head2);
         ListTraversal.traverse(result);
     }
