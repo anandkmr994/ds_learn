@@ -10,23 +10,21 @@ public class MergeSortedList {
 
     public static ListNode sortedMerge(ListNode head1 , ListNode head2) {
         ListNode head = null , current = null;
-        ListNode newNode ;
-        int data = 0;
         ListNode current1 = head1,current2 = head2 ;
+        ListNode temp = null ;
         while(current1 != null && current2 != null){
             if(current1.getData()>=current2.getData()) {
-                data = current2.getData();
+                temp = current2;
                 current2 = current2.getNext();
             }else if(current1.getData()<current2.getData()) {
-                data = current1.getData();
+                temp = current1;
                 current1 = current1.getNext();
             }
-            newNode = new ListNode(data);
             if(head == null){
-                  head = newNode ;
-                  current = head ;
+                  head = temp ;
+                  current = temp ;
             }else{
-                current.setNext(newNode);
+                current.setNext(temp);
                 current = current.getNext() ;
             }
         }
