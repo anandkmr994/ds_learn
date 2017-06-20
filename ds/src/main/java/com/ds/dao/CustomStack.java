@@ -22,10 +22,14 @@ public class CustomStack<T> {
             System.out.println("stack underflow");
             new RuntimeException("stack underflow");
         }
-        element = arrayOfElements.get(top);
+        element = arrayOfElements.remove(top-1);
         size--;
         top--;
         return element;
+    }
+
+    public T peek(){
+        return arrayOfElements.get(top-1);
     }
 
     public boolean isEmpty(){
