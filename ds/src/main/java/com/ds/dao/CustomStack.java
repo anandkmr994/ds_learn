@@ -20,7 +20,7 @@ public class CustomStack<T> {
         T element ;
         if(size <= 0){
             System.out.println("stack underflow");
-            new RuntimeException("stack underflow");
+            throw new RuntimeException("stack underflow");
         }
         element = arrayOfElements.remove(top-1);
         size--;

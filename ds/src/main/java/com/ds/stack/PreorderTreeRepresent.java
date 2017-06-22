@@ -5,6 +5,7 @@ import com.ds.dao.CustomStack;
 /**
  * Created by anandkumar on 20/6/17.
  */
+//checks if an array can represent pre order traversal of a BST
 public class PreorderTreeRepresent {
     public static boolean canRepresentPre(int[] pre) {
         CustomStack<Integer> stack = new CustomStack<Integer>();
